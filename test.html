@@ -14,7 +14,29 @@
   </head>
   <style>
     
-  
+  #map
+  {
+
+  position:relative;
+  animation:map 20s infinite;
+  -webkit-animation:map 20s infinite; /* Safari and Chrome */
+  }
+
+  @keyframes map
+  {
+  0%   {top:-400px; left: -1000px;}
+  25%  {top:-200px; left: -500px;}
+  75%  {top:-600px; left: -1200px; }
+  100% {top:-100px; left: -400px;}
+  }
+
+  @-webkit-keyframes map /* Safari and Chrome */
+  {
+  0%   {top:40px; left: 40px;}
+  25%  {top:200px; left: 500px;}
+  75%  {top:600px; left: 1200px; }
+  100% {top:100px; left: 400px;}
+  }
   </style>
 
   <body>
