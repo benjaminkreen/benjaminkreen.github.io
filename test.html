@@ -40,7 +40,44 @@
   </style>
 
   <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src='/images/swooplogo.png' style="width:100%"></img>Swoop</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="">Coming Soon 2015</a></li>
+          <li class><a href="" data-toggle="modal" data-target="#bio-modal">About</a></li> 
+        </ul>
+      </div>
+    </nav>
     <img id="map" src="/images/map_aqua.jpg"></img>
+      <div class="modal fade" id="bio-modal" tabindex="-1" role="dialog" aria-labelledby="bioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Stuff</h4>
+            </div>
+            <div class="modal-body">
+              <p>
+                Design by <a href="/">Ben Miller</a>
+              </p>
+              <br>
+              <p>
+                Background map courtesy of <a href="">© OpenStreetMap contributors</a> and supplied by <a href='https://github.com/zverik/bigmap2'>Ilya Zverev</a>.
+              </p>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->   
+    </body>
   </body>
 </html>
 
