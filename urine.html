@@ -1,59 +1,71 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Spinnaker" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="offset-md-4 col-md-2 input-group-sm">
+        <div class="offset-sm-4 col-sm-4 input-group">
           <input type="number" class="form-control" placeholder="ex: 1987" name="year" id="year" oninput="yearInput()">
         </div>
-        <div class="col-md-6 align-bottom">
+        <div class="col-sm-4 align-bottom">
           <p class="align-bottom">Year of Birth</p>
        </div>
       </div>
       <div class="row">
-        <div class="col-md-4 text-right">
-          So far you have produced ...
+        <div class="col-sm-4 text-right">
+          So far, you have produced approximately
         </div>
-        <div class="col-md-2 input-group-sm">
+        <div class="col-sm-4 input-group">
+          <input class="form-control" id="urine-gal" disabled>
+        </div>
+        <div class="col-sm-4">
+          of urine through your lifetime. That is a lot of pee!
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 text-right">
+          That means you have produced around
+        </div>
+        <div class="col-sm-4 input-group">
           <input class="form-control" id="n-lbs" disabled>
         </div>
-        <div class="col-md-4">
-          of Nitrogen through your lifetime!
+        <div class="col-sm-4">
+          of Nitrogen through urine in your lifetime!
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 text-right">
-          And you have produced ...
+        <div class="col-sm-4 text-right">
+          Which would have been enough Nitrogen to fertilize
         </div>
-        <div class="col-md-2 input-group-sm">
-          <input class="form-control" id="p-lbs" disabled>
-        </div>
-        <div class="col-md-4">
-          of Phosphate through your lifetime!
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 text-right">
-          That is enough to fertilize
-        </div>
-        <div class="col-md-2 input-group-sm">
+        <div class="col-sm-4 input-group">
           <input class="form-control" id="crop-ft" disabled>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-4">
           of <span class="crop-name"></span>!
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 text-right">
-          Which is a total of
+        <div class="col-sm-4 text-right">
+          Which in turn could have produced roughly
         </div>
-        <div class="col-md-2 input-group-sm">
+        <div class="col-sm-4 input-group">
           <input class="form-control" id="crop-lbs" disabled>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-4">
           of <span class="crop-name"></span>!
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 text-right">
+          Oh, and by diverting this urine you could have saved
+        </div>
+        <div class="col-sm-4 input-group">
+          <input class="form-control" id="water-gal" disabled>
+        </div>
+        <div class="col-sm-4">
+          of potable water through your lifetime!
         </div>
       </div>
     </div>
@@ -81,10 +93,13 @@
     var crop = crops[~~(crops.length * Math.random())]
     var sqft = parseInt(nitrogen / crop[1]);
     var lbs = parseInt(sqft * crop[2]);
+    var water = parseInt(age * 2.6 * 3 * 365)
+    var urine = parseInt(age * 137)
     document.getElementById('n-lbs').value = nitrogen + ' lbs';
-    document.getElementById('p-lbs').value = age + ' lbs';
-    document.getElementById('crop-ft').value = sqft.toLocaleString(undefined, {minimumFractionDigits: 0}) + ' sqft';
-    document.getElementById('crop-lbs').value = lbs.toLocaleString(undefined, {minimumFractionDigits: 0}) +' lbs';
+    document.getElementById('crop-ft').value = sqft.toLocaleString(undefined, {minimumFractionDigits: 0}) + ' sq. ft.';
+    document.getElementById('crop-lbs').value = lbs.toLocaleString(undefined, {minimumFractionDigits: 0}) + ' lbs';
+    document.getElementById('water-gal').value = water.toLocaleString(undefined, {minimumFractionDigits: 0}) + ' gal.';
+    document.getElementById('urine-gal').value = urine.toLocaleString(undefined, {minimumFractionDigits: 0}) + ' gal.'
     document.getElementsByClassName('crop-name')[0].textContent = crop[0]
     document.getElementsByClassName('crop-name')[1].textContent = crop[0]
   }
@@ -94,6 +109,7 @@
   body {
     background-color: rgb(84, 77, 0);
     color: white;
+    font: 'Spinnaker', sans-serif;
   }
 
   .row {
